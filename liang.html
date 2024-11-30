@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <!-- 引入 ECharts 文件 -->
+    <script src="echarts.min.js"></script>
+  </head>
+  <body>
+    <!-- 为 ECharts 准备一个定义了宽高的 DOM -->
+    <div id="main" style="width: 1600px;height:900px;"></div>
+    <script type="text/javascript">
+      // 基于准备好的dom，初始化echarts实例
+      var myChart = echarts.init(document.getElementById('main'));
+
+      // 指定图表的配置项和数据
+      var option = {
+        xAxis: {
+    type: 'category',
+    data: ['亮のSleep','亮のstudy']
+  },
+  yAxis: {
+    type: 'value',
+    name: '时长/mins',
+    axisLine: {
+      show: true
+    }
+  },
+  title: {
+       text: '亮の观测记录',
+       subtext: '(数据从2024.12.1开始记录)',
+       textStyle: {
+         fontSize: 30,
+         fontWeight: 20
+       },
+       left: 'center',
+       top: '1%'
+  },
+  grid: {
+    top: "12%"
+  },
+  series: [
+    {
+      data: [
+        {
+          value: 0,
+          itemStyle: {color: '#D1E8FF'}
+        },
+        {
+          value: 0,
+          itemStyle: {color: '#4CB3A0'}
+        }
+      ],
+      type: 'bar'
+    }
+  ]
+      };
+
+      // 使用刚指定的配置项和数据显示图表。
+      myChart.setOption(option);
+    </script>
+  </body>
+</html>
